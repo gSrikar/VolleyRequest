@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">VolleyRequest</string>
+
+    <!-- Login Edit Text hints -->
+    <string name="hint_email_address">Email Address</string>
+    <string name="hint_password">Password</string>
+
+    <!-- Login button -->
+    <string name="button_text_login">Login</string>
 </resources>

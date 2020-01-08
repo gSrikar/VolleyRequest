@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Edit Text default margins -->
+    <dimen name="default_edit_text_vertical_margin">16dp</dimen>
+    <dimen name="default_edit_text_horizontal_margin">32dp</dimen>
+</resources>
