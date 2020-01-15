@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onErrorResponse(@NonNull VolleyError error) {
                 error.printStackTrace();
                 Snackbar.make(mainConstraintLayout, "Error: " + error.getMessage(),
                         Snackbar.LENGTH_SHORT).show();

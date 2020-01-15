@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
     private void login(@NonNull final String email, @NonNull final String password) {
         loadingBar.setVisibility(View.VISIBLE);
         loginButton.setVisibility(View.GONE);
-        JSONObject jsonObject = new JSONObject();
+        final JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("email", email);
             jsonObject.put("password", password);
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_LOGIN,
                 jsonObject, new Response.Listener<JSONObject>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(@NonNull JSONObject response) {
                 try {
                     @NonNull final String token = response.getString("token");
                     Log.d(TAG, "Token: " + token);
@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onErrorResponse(@NonNull VolleyError error) {
                 error.printStackTrace();
                 loadingBar.setVisibility(View.GONE);
                 loginButton.setVisibility(View.VISIBLE);
@@ -112,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                         Snackbar.LENGTH_SHORT).show();
             }
         }) {
+            @NonNull
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
