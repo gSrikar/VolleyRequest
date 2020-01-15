@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
             @NonNull
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
+                final Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/json");
                 return params;
             }
