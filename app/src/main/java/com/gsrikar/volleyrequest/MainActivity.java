@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Logcat tag
      */
-    public static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = MainActivity.class.getSimpleName();
 
-    public static final String URL_USER = "https://reqres.in/api/users/2";
+    private static final String URL_USER = "https://reqres.in/api/users/2";
 
     // UI elements
     private ConstraintLayout mainConstraintLayout;

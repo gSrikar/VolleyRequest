@@ -31,12 +31,12 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Logcat tag
      */
-    public static final String TAG = LoginActivity.class.getSimpleName();
+    private static final String TAG = LoginActivity.class.getSimpleName();
 
     /**
      * End point to validate the user credentials
      */
-    public static final String URL_LOGIN = "https://reqres.in/api/login";
+    private static final String URL_LOGIN = "https://reqres.in/api/login";
 
     // UI elements
     private MaterialButton loginButton;
