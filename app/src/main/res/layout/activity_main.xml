@@ -11,6 +11,7 @@
         android:id="@+id/responseTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="@dimen/response_text_size"
         app:layout_constraintLeft_toLeftOf="parent"
