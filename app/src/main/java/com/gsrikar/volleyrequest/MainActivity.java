@@ -40,16 +40,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchUser() {
+        // Build the request
         final StringRequest stringRequest = new StringRequest(URL_USER, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response) {
+            public void onResponse(@NonNull String response) {
+                // Api call successful
                 Log.d(TAG, "Response: " + response);
+                // Show the response on the screen
                 responseTextView.setText(response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(@NonNull VolleyError error) {
+                // Api call failed
+                // Print the error to stacktrace
                 error.printStackTrace();
+                // Show the error to the user
                 Snackbar.make(mainConstraintLayout, "Error: " + error.getMessage(),
                         Snackbar.LENGTH_SHORT).show();
             }
