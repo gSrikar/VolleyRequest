@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String URL_USER = "https://reqres.in/api/users/2";
 
     // UI elements
-    private ConstraintLayout mainConstraintLayout;
+    private CoordinatorLayout mainConstraintLayout;
     private TextView responseTextView;
 
     @Override
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initialize the UI elements
-        mainConstraintLayout = findViewById(R.id.mainConstraintLayout);
+        mainConstraintLayout = findViewById(R.id.coordinatorLayout);
         responseTextView = findViewById(R.id.responseTextView);
 
         fetchUser();
