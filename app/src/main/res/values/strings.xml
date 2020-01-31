@@ -7,4 +7,8 @@
 
     <!-- Login button -->
     <string name="button_text_login">Login</string>
+
+    <!-- Menu item titles -->
+    <string name="action_title_search">Search</string>
+    <string name="action_title_settings">Settings</string>
 </resources>

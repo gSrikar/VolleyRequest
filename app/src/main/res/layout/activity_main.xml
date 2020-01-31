@@ -16,7 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:hideOnScroll="true"
-        app:fabAnimationMode="slide"/>
+        app:fabAnimationMode="slide"
+        app:menu="@menu/menu_main"
+        app:navigationIcon="@drawable/ic_menu_white"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
