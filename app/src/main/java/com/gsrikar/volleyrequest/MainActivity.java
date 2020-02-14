@@ -101,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 // Print the error to stacktrace
                 error.printStackTrace();
                 // Show the error to the user
-                Snackbar.make(mainConstraintLayout, "Error: " + error.getMessage(),
-                        Snackbar.LENGTH_SHORT).show();
+                showSnack(error.getMessage() != null ? error.getMessage() : getString(R.string.error_api_call_failed));
             }
         });
 

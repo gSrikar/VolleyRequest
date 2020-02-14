@@ -16,4 +16,7 @@
     <string name="clicked_menu_settings">Settings Clicked</string>
     <string name="clicked_button_fab">Fab Button Clicked</string>
     <string name="clicked_menu_nav">Navigation Menu Clicked</string>
+
+    <!-- Default error message for API call failure -->
+    <string name="error_api_call_failed">Api Call Failed</string>
 </resources>
