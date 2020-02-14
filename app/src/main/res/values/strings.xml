@@ -11,4 +11,9 @@
     <!-- Menu item titles -->
     <string name="action_title_search">Search</string>
     <string name="action_title_settings">Settings</string>
+
+    <!-- Snack messages for button taps -->
+    <string name="clicked_menu_settings">Settings Clicked</string>
+    <string name="clicked_button_fab">Fab Button Clicked</string>
+    <string name="clicked_menu_nav">Navigation Menu Clicked</string>
 </resources>
