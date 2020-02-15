@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,9 +14,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
+import com.gsrikar.volleyrequest.databinding.ActivityLoginBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,29 +35,21 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static final String URL_LOGIN = "https://reqres.in/api/login";
 
-    // UI elements
-    private MaterialButton loginButton;
-    private TextInputEditText emailTextEditText;
-    private TextInputEditText passwordTextEditText;
-    private ProgressBar loadingBar;
-    private ConstraintLayout loginConstraintLayout;
+    private ActivityLoginBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        // Inflate the layout
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        // Set the content view
+        setContentView(binding.getRoot());
 
-        // Initialize the UI elements
-        loginConstraintLayout = findViewById(R.id.loginConstraintLayout);
-        loadingBar = findViewById(R.id.loadingBar);
-        loginButton = findViewById(R.id.loginButton);
-        emailTextEditText = findViewById(R.id.emailTextEditText);
-        passwordTextEditText = findViewById(R.id.passwordTextEditText);
-
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login(emailTextEditText.getText().toString(), passwordTextEditText.getText().toString());
+                login(binding.emailTextEditText.getText().toString(),
+                        binding.passwordTextEditText.getText().toString());
             }
         });
     }
@@ -72,8 +61,8 @@ public class LoginActivity extends AppCompatActivity {
      * @param password Entered password
      */
     private void login(@NonNull final String email, @NonNull final String password) {
-        loadingBar.setVisibility(View.VISIBLE);
-        loginButton.setVisibility(View.GONE);
+        binding.loadingBar.setVisibility(View.VISIBLE);
+        binding.loginButton.setVisibility(View.GONE);
         final JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("email", email);
@@ -96,9 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     // Show the error
                     e.printStackTrace();
-                    loadingBar.setVisibility(View.GONE);
-                    loginButton.setVisibility(View.VISIBLE);
-                    Snackbar.make(loginConstraintLayout, "Error " + e.getMessage(),
+                    binding.loadingBar.setVisibility(View.GONE);
+                    binding.loginButton.setVisibility(View.VISIBLE);
+                    Snackbar.make(binding.loginConstraintLayout, "Error " + e.getMessage(),
                             Snackbar.LENGTH_SHORT).show();
                 }
             }
@@ -106,9 +95,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(@NonNull VolleyError error) {
                 error.printStackTrace();
-                loadingBar.setVisibility(View.GONE);
-                loginButton.setVisibility(View.VISIBLE);
-                Snackbar.make(loginConstraintLayout, "Error " + error.getMessage(),
+                binding.loadingBar.setVisibility(View.GONE);
+                binding.loginButton.setVisibility(View.VISIBLE);
+                Snackbar.make(binding.loginConstraintLayout, "Error " + error.getMessage(),
                         Snackbar.LENGTH_SHORT).show();
             }
         }) {
