@@ -7,7 +7,8 @@
     android:id="@+id/coordinatorLayout"
     tools:context=".MainActivity">
 
-    <include layout="@layout/activity_content" />
+    <include android:id="@+id/activityContent"
+        layout="@layout/activity_content" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
