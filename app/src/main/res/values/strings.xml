@@ -19,4 +19,7 @@
 
     <!-- Default error message for API call failure -->
     <string name="error_api_call_failed">Api Call Failed</string>
+
+    <!-- Content description to fab icon -->
+    <string name="create_fab_content_description">Create User</string>
 </resources>
