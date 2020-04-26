@@ -3,6 +3,7 @@ package com.gsrikar.volleyrequest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -61,6 +62,16 @@ public class LoginActivity extends AppCompatActivity {
      * @param password Entered password
      */
     private void login(@NonNull final String email, @NonNull final String password) {
+        if (!isValidEmail(email)) {
+            Snackbar.make(binding.loginConstraintLayout, "Email address is not valid",
+                    Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        if (password.length() < 3) {
+            Snackbar.make(binding.loginConstraintLayout, "Password is too short",
+                    Snackbar.LENGTH_SHORT).show();
+            return;
+        }
         binding.loadingBar.setVisibility(View.VISIBLE);
         binding.loginButton.setVisibility(View.GONE);
         final JSONObject jsonObject = new JSONObject();
@@ -112,6 +123,10 @@ public class LoginActivity extends AppCompatActivity {
 
         // Make the request
         Volley.newRequestQueue(this).add(jsonObjectRequest);
+    }
+
+    private boolean isValidEmail(@NonNull final String email) {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     private void openMainActivity(@NonNull final String email) {
