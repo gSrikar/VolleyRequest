@@ -12,6 +12,7 @@
 
     <item
         android:id="@+id/settings"
+        android:icon="@drawable/ic_settings_white"
         android:orderInCategory="102"
         android:title="@string/action_title_settings"
         app:showAsAction="never" />
